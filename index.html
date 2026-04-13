@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <style>
+    /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     :root {
@@ -18,7 +19,7 @@
     }
     body { font-family: var(--font-body); background: var(--black); color: var(--white); min-height: 100vh; overflow-x: hidden; }
 
-    /* Nav */
+    /* ===== NAV ===== */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(10,10,10,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .nav-logo-mark { width: 32px; height: 32px; background: var(--white); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
@@ -30,7 +31,7 @@
     .nav-cta { font-family: var(--font-body); font-size: 13px; font-weight: 500; background: var(--white); color: var(--black); border: none; border-radius: 8px; padding: 9px 20px; cursor: pointer; text-decoration: none; transition: opacity .2s; }
     .nav-cta:hover { opacity: .88; }
 
-    /* Hero */
+    /* ===== HERO ===== */
     .hero { padding: 180px 48px 120px; max-width: 1100px; margin: 0 auto; }
     .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border2); border-radius: 100px; padding: 6px 14px 6px 8px; margin-bottom: 40px; }
     .hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--white); }
@@ -44,7 +45,7 @@
     .btn-ghost { font-family: var(--font-body); font-size: 14px; background: transparent; color: var(--muted); border: 1px solid var(--border2); border-radius: 10px; padding: 14px 28px; cursor: pointer; text-decoration: none; display: inline-block; transition: color .2s, border-color .2s; }
     .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,.3); }
 
-    /* Stats */
+    /* ===== STATS ===== */
     .stats { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px 48px; display: grid; grid-template-columns: repeat(4,1fr); }
     .stat { padding: 0 32px; border-right: 1px solid var(--border); }
     .stat:first-child { padding-left: 0; }
@@ -52,7 +53,7 @@
     .stat-num { font-family: var(--font-display); font-size: 40px; font-weight: 700; color: var(--white); letter-spacing: -.03em; line-height: 1; margin-bottom: 6px; }
     .stat-label { font-size: 13px; color: var(--muted); }
 
-    /* Services */
+    /* ===== SERVICES ===== */
     .services { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
     .section-label { font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 48px; display: flex; align-items: center; gap: 12px; }
     .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--muted); }
@@ -64,69 +65,18 @@
     .service-card h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 10px; letter-spacing: -.02em; }
     .service-card p { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.65; }
 
-    /* CTA */
+    /* ===== CTA ===== */
     .cta-section { padding: 80px 48px 120px; max-width: 1100px; margin: 0 auto; text-align: center; }
     .cta-section h2 { font-family: var(--font-display); font-size: clamp(36px,5vw,64px); font-weight: 800; letter-spacing: -.04em; line-height: 1; margin-bottom: 20px; }
     .cta-section p { font-size: 16px; font-weight: 300; color: var(--muted); margin-bottom: 36px; }
 
-    /* Footer */
+    /* ===== FOOTER ===== */
     footer { border-top: 1px solid var(--border); padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; }
     footer p { font-size: 13px; color: var(--muted); }
     footer a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .2s; }
     footer a:hover { color: var(--white); }
 
-    /* ════════ CHAT WIDGET ════════ */
-    #chat-bubble { position: fixed; bottom: 28px; right: 28px; z-index: 9999; width: 56px; height: 56px; border-radius: 50%; background: var(--white); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(0,0,0,.4); transition: transform .2s; }
-    #chat-bubble:hover { transform: scale(1.07); }
-    #chat-bubble:active { transform: scale(.96); }
-    #chat-bubble svg { width: 24px; height: 24px; }
-    #bubble-icon-chat  { display: block; }
-    #bubble-icon-close { display: none; }
-    #chat-bubble.open #bubble-icon-chat  { display: none; }
-    #chat-bubble.open #bubble-icon-close { display: block; }
-    #chat-badge { position: absolute; top: -3px; right: -3px; width: 18px; height: 18px; background: #ef4444; border-radius: 50%; border: 2px solid var(--black); font-size: 10px; font-weight: 600; color: #fff; align-items: center; justify-content: center; display: none; }
-
-    #chat-panel { position: fixed; bottom: 96px; right: 28px; z-index: 9998; width: 376px; max-width: calc(100vw - 40px); background: #fff; border-radius: 20px; box-shadow: 0 16px 60px rgba(0,0,0,.35); display: flex; flex-direction: column; overflow: hidden; max-height: 600px; transform: scale(.9) translateY(20px); opacity: 0; pointer-events: none; transition: transform .25s cubic-bezier(.34,1.56,.64,1), opacity .18s ease; }
-    #chat-panel.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
-
-    .cp-header { display: flex; align-items: center; gap: 10px; padding: 14px 16px; background: #fff; border-bottom: 1px solid #f2f2f2; flex-shrink: 0; }
-    .cp-avatar { width: 38px; height: 38px; border-radius: 50%; background: #0a0a0a; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .cp-avatar svg { width: 20px; height: 20px; }
-    .cp-info { flex: 1; }
-    .cp-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: #0a0a0a; }
-    .cp-status { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #888; margin-top: 2px; }
-    .cp-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; }
-    .cp-close { width: 30px; height: 30px; border-radius: 8px; background: #f5f5f5; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #888; transition: background .15s; }
-    .cp-close:hover { background: #ececec; color: #111; }
-    .cp-close svg { width: 14px; height: 14px; }
-
-    #cp-messages { flex: 1; overflow-y: auto; padding: 16px 14px; display: flex; flex-direction: column; gap: 10px; min-height: 260px; scrollbar-width: thin; scrollbar-color: #e5e5e5 transparent; }
-    .msg-row { display: flex; flex-direction: column; gap: 3px; }
-    .msg-row.agent { align-items: flex-start; }
-    .msg-row.user  { align-items: flex-end; }
-    .msg-bubble { max-width: 82%; padding: 10px 14px; border-radius: 18px; font-size: 14px; line-height: 1.5; word-break: break-word; font-family: 'DM Sans', sans-serif; }
-    .msg-row.agent .msg-bubble { background: #f4f4f4; color: #111; border-bottom-left-radius: 4px; }
-    .msg-row.user  .msg-bubble { background: #0a0a0a; color: #fff; border-bottom-right-radius: 4px; }
-    .msg-time { font-size: 10px; color: #bbb; padding: 0 4px; }
-
-    .typing-bubble { display: flex; gap: 5px; padding: 12px 16px; background: #f4f4f4; border-radius: 18px; border-bottom-left-radius: 4px; width: fit-content; }
-    .typing-bubble span { width: 7px; height: 7px; border-radius: 50%; background: #bbb; animation: tb 1.2s ease-in-out infinite; }
-    .typing-bubble span:nth-child(2) { animation-delay: .2s; }
-    .typing-bubble span:nth-child(3) { animation-delay: .4s; }
-    @keyframes tb { 0%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-6px); } }
-
-    #cp-error { background: #fff5f5; border-top: 1px solid #fecaca; padding: 8px 14px; font-size: 12px; color: #dc2626; font-family: 'DM Sans', sans-serif; display: none; flex-shrink: 0; }
-    #cp-error.show { display: block; }
-
-    .cp-input-row { border-top: 1px solid #f2f2f2; padding: 12px 14px; display: flex; align-items: flex-end; gap: 8px; background: #fff; flex-shrink: 0; }
-    #cp-textarea { flex: 1; font-family: 'DM Sans', sans-serif; font-size: 14px; border: 1px solid #e5e7eb; border-radius: 12px; padding: 10px 14px; outline: none; resize: none; max-height: 100px; overflow-y: auto; line-height: 1.45; color: #111; background: #fff; transition: border-color .15s; }
-    #cp-textarea:focus { border-color: #111; }
-    #cp-textarea::placeholder { color: #bbb; }
-    #cp-send { width: 38px; height: 38px; border-radius: 50%; background: #0a0a0a; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity .15s, transform .12s; }
-    #cp-send:hover { opacity: .8; }
-    #cp-send:active { transform: scale(.93); }
-    #cp-send svg { width: 16px; height: 16px; }
-
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
       .nav-links { display: none; }
@@ -138,13 +88,14 @@
       .services-grid { grid-template-columns: 1fr; }
       .cta-section { padding: 60px 20px 80px; }
       footer { flex-direction: column; gap: 12px; padding: 24px 20px; text-align: center; }
-      #chat-panel { right: 16px; bottom: 88px; width: calc(100vw - 32px); }
-      #chat-bubble { right: 16px; bottom: 20px; }
     }
+
+    /* ===== (removed custom chat widget styles – now using official embed) ===== */
   </style>
 </head>
 <body>
 
+  <!-- ===== NAVIGATION ===== -->
   <nav>
     <a href="#" class="nav-logo">
       <div class="nav-logo-mark">
@@ -160,6 +111,7 @@
     <a href="#contact" class="nav-cta">Get in Touch</a>
   </nav>
 
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-tag"><div class="hero-tag-dot"></div><span>Licensed &amp; Insured · Est. 2008</span></div>
     <h1>Built to <em>last.</em><br/>Finished on time.</h1>
@@ -170,6 +122,7 @@
     </div>
   </section>
 
+  <!-- ===== STATS ===== -->
   <div class="stats">
     <div class="stat"><div class="stat-num">400+</div><div class="stat-label">Projects completed</div></div>
     <div class="stat"><div class="stat-num">16yr</div><div class="stat-label">In the industry</div></div>
@@ -177,6 +130,7 @@
     <div class="stat"><div class="stat-num">$2B+</div><div class="stat-label">Project value managed</div></div>
   </div>
 
+  <!-- ===== SERVICES ===== -->
   <section class="services" id="services">
     <div class="section-label">What we do</div>
     <div class="services-grid">
@@ -213,12 +167,14 @@
     </div>
   </section>
 
+  <!-- ===== CONTACT CTA ===== -->
   <section class="cta-section" id="contact">
     <h2>Ready to build?</h2>
-    <p>Talk to our team — chat with us below or reach out directly.</p>
+    <p>Talk to our team — use the chat widget in the corner or reach out directly.</p>
     <a href="mailto:hello@callconstruction.com" class="btn-primary">hello@callconstruction.com</a>
   </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
     <p>© 2025 Call Construction. All rights reserved.</p>
     <div style="display:flex;gap:24px;">
@@ -228,200 +184,14 @@
     </div>
   </footer>
 
-  <!-- ════════ CHAT WIDGET ════════ -->
-  <button id="chat-bubble" onclick="toggleChat()" aria-label="Open chat">
-    <div id="chat-badge"></div>
-    <svg id="bubble-icon-chat" viewBox="0 0 24 24" fill="none">
-      <path d="M4 4h16a1 1 0 011 1v10a1 1 0 01-1 1H8l-5 4V5a1 1 0 011-1z" fill="#0a0a0a"/>
-    </svg>
-    <svg id="bubble-icon-close" viewBox="0 0 24 24" fill="none">
-      <path d="M6 6l12 12M18 6L6 18" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </button>
-
-  <div id="chat-panel" role="dialog" aria-label="Call Construction Chat">
-    <div class="cp-header">
-      <div class="cp-avatar">
-        <svg viewBox="0 0 20 20" fill="none"><path d="M2 16L6 8L9 13L12 10L17 16H2Z" fill="#fff" stroke="#fff" stroke-width=".5" stroke-linejoin="round"/><circle cx="15" cy="4.5" r="2" fill="#fff"/></svg>
-      </div>
-      <div class="cp-info">
-        <div class="cp-name">Call Construction</div>
-        <div class="cp-status"><div class="cp-dot"></div><span>Online — replies instantly</span></div>
-      </div>
-      <button class="cp-close" onclick="toggleChat()">
-        <svg viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-
-    <div id="cp-messages">
-      <div class="msg-row agent">
-        <div class="msg-bubble">Welcome to Call Construction. How can I help you today?</div>
-        <span class="msg-time">Just now</span>
-      </div>
-    </div>
-
-    <div id="cp-error"></div>
-
-    <div class="cp-input-row">
-      <textarea id="cp-textarea" rows="1" placeholder="Start a new conversation..."
-        onkeydown="handleKey(event)" oninput="autoGrow(this)"></textarea>
-      <button id="cp-send" onclick="sendMessage()">
-        <svg viewBox="0 0 16 16" fill="none"><path d="M2 8l12-5.5-5.5 12L7 9 2 8z" fill="#fff"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@elevenlabs/client@latest/dist/index.umd.js"></script>
-  <script>
-  (function () {
-    'use strict';
-
-    var AGENT_ID       = 'agent_8301kp3q3rvhe1ztjm85dgynkvym';
-    var conversation   = null;
-    var isOpen         = false;
-    var isBusy         = false;
-    var sessionStarted = false;
-
-    var panel    = document.getElementById('chat-panel');
-    var bubble   = document.getElementById('chat-bubble');
-    var badge    = document.getElementById('chat-badge');
-    var messages = document.getElementById('cp-messages');
-    var textarea = document.getElementById('cp-textarea');
-    var errorBar = document.getElementById('cp-error');
-
-    /* Invite badge after 3s */
-    setTimeout(function () { if (!isOpen) showBadge('1'); }, 3000);
-
-    /* Toggle open/close */
-    window.toggleChat = function () {
-      isOpen = !isOpen;
-      panel.classList.toggle('open', isOpen);
-      bubble.classList.toggle('open', isOpen);
-      if (isOpen) {
-        hideBadge();
-        textarea.focus();
-        if (!sessionStarted) { sessionStarted = true; startSession(); }
-      }
-    };
-
-    /* Start ElevenLabs session */
-    function startSession() {
-      waitForSDK(function () {
-        window.ElevenLabsClient.Conversation.startSession({
-          agentId: AGENT_ID,
-          onConnect: function () { hideError(); },
-          onMessage: function (data) {
-            removeTyping();
-            isBusy = false;
-            if (data.source === 'agent' && data.message) {
-              addMessage('agent', data.message);
-              if (!isOpen) showBadge('•');
-            }
-          },
-          onModeChange: function () {},
-          onDisconnect: function () { conversation = null; sessionStarted = false; },
-          onError: function (err) {
-            removeTyping();
-            isBusy = false;
-            var m = typeof err === 'string' ? err : (err && err.message ? err.message : 'Connection error');
-            showError(m);
-            conversation = null;
-            sessionStarted = false;
-          }
-        }).then(function (conv) {
-          conversation = conv;
-          hideError();
-        }).catch(function (e) {
-          showError('Connection failed: ' + (e && e.message ? e.message : String(e)));
-          conversation = null;
-          sessionStarted = false;
-        });
-      });
-    }
-
-    /* Poll for SDK ready — up to 5 seconds */
-    function waitForSDK(cb) {
-      var tries = 0;
-      var iv = setInterval(function () {
-        if (window.ElevenLabsClient) { clearInterval(iv); cb(); }
-        else if (++tries > 33) { clearInterval(iv); showError('SDK failed to load. Please refresh.'); }
-      }, 150);
-    }
-
-    /* Send message */
-    window.sendMessage = function () {
-      var text = textarea.value.trim();
-      if (!text || isBusy) return;
-      addMessage('user', text);
-      textarea.value = '';
-      autoGrow(textarea);
-      hideError();
-      isBusy = true;
-      showTyping();
-
-      function doSend() {
-        if (!conversation) {
-          removeTyping(); isBusy = false;
-          showError('Not connected yet — please try again in a moment.');
-          return;
-        }
-        conversation.sendUserMessage(text).catch(function (e) {
-          removeTyping(); isBusy = false;
-          showError('Send failed: ' + (e && e.message ? e.message : String(e)));
-        });
-      }
-
-      if (!conversation) {
-        if (!sessionStarted) { sessionStarted = true; startSession(); }
-        setTimeout(doSend, 3000);
-      } else {
-        doSend();
-      }
-    };
-
-    window.handleKey = function (e) {
-      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
-    };
-
-    window.autoGrow = function (el) {
-      el.style.height = 'auto';
-      el.style.height = Math.min(el.scrollHeight, 100) + 'px';
-    };
-
-    function addMessage(role, text) {
-      var now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      var row = document.createElement('div');
-      row.className = 'msg-row ' + role;
-      row.innerHTML = '<div class="msg-bubble">' + escHtml(text) + '</div><span class="msg-time">' + now + '</span>';
-      messages.appendChild(row);
-      messages.scrollTop = messages.scrollHeight;
-    }
-
-    function showTyping() {
-      if (document.getElementById('t-row')) return;
-      var row = document.createElement('div');
-      row.className = 'msg-row agent'; row.id = 't-row';
-      row.innerHTML = '<div class="typing-bubble"><span></span><span></span><span></span></div>';
-      messages.appendChild(row);
-      messages.scrollTop = messages.scrollHeight;
-    }
-
-    function removeTyping() { var el = document.getElementById('t-row'); if (el) el.remove(); }
-    function showError(m)   { errorBar.textContent = m; errorBar.classList.add('show'); }
-    function hideError()    { errorBar.textContent = ''; errorBar.classList.remove('show'); }
-    function showBadge(v)   { badge.textContent = v; badge.style.display = 'flex'; }
-    function hideBadge()    { badge.style.display = 'none'; }
-
-    function escHtml(s) {
-      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    }
-
-    window.addEventListener('beforeunload', function () {
-      if (conversation) { try { conversation.endSession(); } catch(e) {} }
-    });
-
-  })();
-  </script>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       OFFICIAL ELEVENLABS CONVERSATIONAL AI WIDGET (TEXT CHAT)
+       Replaces the custom bubble + wrong SDK. 
+       This is the only change needed — clean, minimal, correct.
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <elevenlabs-convai agent-id="agent_8301kp3q3rvhe1ztjm85dgynkvym"></elevenlabs-convai>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
 
 </body>
 </html>
